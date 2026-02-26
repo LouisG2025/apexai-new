@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+    --primary: 218 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 20% 10%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 10% 96%;
+    --accent-foreground: 220 20% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 218 100% 50%;
+    --chart-1: 218 100% 50%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-cabinet font-bold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .grid-overlay {
+    background-image:
+      linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .grid-overlay-light {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+/* ─── page-hero light grid (offwhite pages) ─────────────────────── */
+.hero-grid {
+  position: relative;
+}
+
+.hero-grid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 45%, transparent 5%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,1) 75%);
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 45%, transparent 5%, rgba(0,0,0,0.25) 35%, rgba(0,0,0,1) 75%);
+  pointer-events: none;
+}
+
+.hero-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 220px 200px at 8% 18%, rgba(0,0,0,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 200px 180px at 92% 72%, rgba(0,0,0,0.04) 0%, transparent 70%),
+    radial-gradient(ellipse 160px 160px at 78% 8%, rgba(0,0,0,0.03) 0%, transparent 60%),
+    radial-gradient(ellipse 180px 170px at 15% 82%, rgba(0,0,0,0.03) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ─── hero dark (home page hero) ────────────────────────────────── */
+.hero-dark {
+  --hg-cell: 6.67vw;
+}
+
+.hero-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right,  rgba(255,255,255,0.038) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.038) 1px, transparent 1px),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='768' height='768'%3E%3Crect x='96'  y='0'   width='96' height='96' fill='white'     fill-opacity='0.022'/%3E%3Crect x='480' y='96'  width='96' height='96' fill='%230152ff' fill-opacity='0.035'/%3E%3Crect x='288' y='192' width='96' height='96' fill='white'     fill-opacity='0.018'/%3E%3Crect x='672' y='288' width='96' height='96' fill='white'     fill-opacity='0.015'/%3E%3Crect x='0'   y='384' width='96' height='96' fill='%230152ff' fill-opacity='0.025'/%3E%3Crect x='192' y='480' width='96' height='96' fill='white'     fill-opacity='0.018'/%3E%3Crect x='576' y='672' width='96' height='96' fill='%230152ff' fill-opacity='0.02'/%3E%3C/svg%3E");
+  background-size:
+    var(--hg-cell) var(--hg-cell),
+    var(--hg-cell) var(--hg-cell),
+    calc(var(--hg-cell) * 8) calc(var(--hg-cell) * 8);
+  -webkit-mask-image:
+    radial-gradient(ellipse 64% 52% at 50% 52%, transparent 0%, rgba(0,0,0,0.1) 52%, black 78%),
+    linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, black 12%, black 62%, rgba(0,0,0,0.45) 78%, transparent 90%),
+    linear-gradient(to right, transparent 0%, black 17%, black 83%, transparent 100%);
+  -webkit-mask-composite: destination-in, destination-in;
+  mask-image:
+    radial-gradient(ellipse 64% 52% at 50% 52%, transparent 0%, rgba(0,0,0,0.1) 52%, black 78%),
+    linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, black 12%, black 62%, rgba(0,0,0,0.45) 78%, transparent 90%),
+    linear-gradient(to right, transparent 0%, black 17%, black 83%, transparent 100%);
+  mask-composite: intersect, intersect;
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .hero-dark::before {
+    -webkit-mask-image:
+      radial-gradient(ellipse 92% 56% at 50% 52%, transparent 0%, rgba(0,0,0,0.1) 56%, black 80%),
+      linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, black 12%, black 62%, rgba(0,0,0,0.45) 78%, transparent 90%),
+      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    -webkit-mask-composite: destination-in, destination-in;
+    mask-image:
+      radial-gradient(ellipse 92% 56% at 50% 52%, transparent 0%, rgba(0,0,0,0.1) 56%, black 80%),
+      linear-gradient(to bottom, rgba(0,0,0,0.75) 0%, black 12%, black 62%, rgba(0,0,0,0.45) 78%, transparent 90%),
+      linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    mask-composite: intersect, intersect;
+  }
+}
+
+/* ─── grid section utilities ─────────────────────────────────────── */
+/* Radial spotlight burst — grid visible at centre, fades to edges   */
+.grid-section-subtle {
+  position: relative;
+}
+
+.grid-section-subtle::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(0, 0, 0, 0.028) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.028) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 75%);
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 50%, transparent 75%);
+  pointer-events: none;
+}
+
+.grid-section-dark {
+  position: relative;
+}
+
+.grid-section-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,0,0,0.3) 0%, black 70%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 12%, rgba(0,0,0,0.8) 85%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    radial-gradient(ellipse 70% 60% at 50% 50%, rgba(0,0,0,0.3) 0%, black 70%),
+    linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.8) 12%, rgba(0,0,0,0.8) 85%, transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── dark CTA band grid (standalone full-width sections) ────────── */
+.cta-grid-dark {
+  position: relative;
+}
+
+.cta-grid-dark::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.032) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.032) 1px, transparent 1px);
+  background-size: 56px 56px;
+  -webkit-mask-image:
+    radial-gradient(ellipse 75% 80% at 50% 50%, transparent 0%, rgba(0,0,0,0.25) 40%, black 75%),
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-composite: destination-in;
+  mask-image:
+    radial-gradient(ellipse 75% 80% at 50% 50%, transparent 0%, rgba(0,0,0,0.25) 40%, black 75%),
+    linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-composite: intersect;
+  pointer-events: none;
+}
+
+/* ─── bubble transition system ───────────────────────────────────── */
+.section-bubble-bottom {
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section-bubble-bottom {
+    border-bottom-left-radius: 64px;
+    border-bottom-right-radius: 64px;
+  }
+}
+
+.section-bubble-top {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section-bubble-top {
+    border-top-left-radius: 64px;
+    border-top-right-radius: 64px;
+  }
+}
+
+/* Standalone floating dark bubble — all four corners rounded */
+.section-bubble {
+  border-radius: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section-bubble {
+    border-radius: 64px;
+  }
+}
+
+/* ─── scroll reveal animation ────────────────────────────────────── */
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal-up {
+  animation: reveal-up 0.5s ease-out forwards;
+}
