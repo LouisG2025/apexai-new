@@ -34,7 +34,7 @@ export function PageHero({
 
   return (
     <section
-      className="hero-dark relative overflow-hidden py-24 md:py-32"
+      className="hero-dark relative overflow-hidden min-h-[100dvh] flex flex-col items-center justify-center"
       style={{ background: '#111827' }}
     >
       <ThreeBackground />
@@ -46,7 +46,7 @@ export function PageHero({
         }}
       />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10 flex flex-col items-center justify-center">
         <div className="mx-auto max-w-3xl text-center">
           <h1
             className={`font-cabinet text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-[3.25rem] duration-[500ms] ${base} ${mounted ? visible : hidden}`}
