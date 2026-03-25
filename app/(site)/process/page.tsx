@@ -2,6 +2,7 @@ import { PageHero } from '@/components/sections/page-hero';
 import { ProcessApproach } from '@/components/sections/process-approach';
 import { ProcessTimeline } from '@/components/sections/process-timeline';
 import { FinalCta } from '@/components/sections/final-cta';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata = {
   title: 'Our Process | ApexAI',
@@ -22,6 +23,7 @@ export default function ProcessPage() {
         <ProcessTimeline />
         <FinalCta />
       </div>
+      <Footer />
     </div>
   );
 }

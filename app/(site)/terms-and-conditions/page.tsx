@@ -1,3 +1,5 @@
+import { Footer } from '@/components/layout/footer';
+
 export const metadata = {
   title: 'Terms & Conditions | ApexAI',
   description: 'Read the ApexAI Terms and Conditions governing use of the apexai.ae website and our services. Governed by DIFC law.',
@@ -183,6 +185,7 @@ export default function TermsPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

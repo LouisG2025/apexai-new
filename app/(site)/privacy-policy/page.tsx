@@ -1,3 +1,5 @@
+import { Footer } from '@/components/layout/footer';
+
 export const metadata = {
   title: 'Privacy Policy | ApexAI',
   description: 'Read the ApexAI Privacy Policy. Learn how we collect, use, and protect your personal data in accordance with applicable UAE and DIFC data protection laws.',
@@ -225,6 +227,7 @@ export default function PrivacyPolicyPage() {
           </div>
         </div>
       </div>
+      <Footer />
     </section>
   );
 }

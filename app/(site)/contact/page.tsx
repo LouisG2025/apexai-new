@@ -1,5 +1,6 @@
 import { PageHero } from '@/components/sections/page-hero';
 import { ContactPageContent } from '@/components/sections/contact-form';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata = {
   title: 'Contact | ApexAI',
@@ -15,6 +16,7 @@ export default function ContactPage() {
       />
 
       <ContactPageContent />
+      <Footer />
     </div>
   );
 }

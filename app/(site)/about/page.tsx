@@ -4,6 +4,7 @@ import { AboutValues } from '@/components/sections/about-values';
 import { CampusSection } from '@/components/sections/campus-section';
 import { Partnerships } from '@/components/sections/partnerships';
 import { FinalCta } from '@/components/sections/final-cta';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata = {
   title: 'About | ApexAI',
@@ -30,6 +31,7 @@ export default function AboutPage() {
       <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
         <FinalCta />
       </div>
+      <Footer />
     </div>
   );
 }

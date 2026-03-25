@@ -4,6 +4,7 @@ import { ServicesOutcomes } from '@/components/sections/services-outcomes';
 import { ServicesPractice } from '@/components/sections/services-practice';
 import { ServicesBespoke } from '@/components/sections/services-bespoke';
 import { FinalCta } from '@/components/sections/final-cta';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata = {
   title: 'Services | ApexAI',
@@ -30,6 +31,7 @@ export default function ServicesPage() {
         <ServicesBespoke />
         <FinalCta />
       </div>
+      <Footer />
     </div>
   );
 }
