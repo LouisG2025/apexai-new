@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { HeroBrandIcons } from './hero-brand-icons';
+import { ThreeBackground } from '@/components/shared/three-background';
 
 export function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -17,25 +18,11 @@ export function Hero() {
   const hidden = 'opacity-0 translate-y-6';
 
   return (
-    <section className="hero-dark relative overflow-hidden" style={{ background: '#111827' }}>
-      <HeroBrandIcons />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 75% 55% at 78% -10%, rgba(1,82,255,0.26) 0%, transparent 65%)',
-        }}
-      />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 45% 35% at 12% 85%, rgba(1,82,255,0.08) 0%, transparent 70%)',
-        }}
-      />
+    <section className="hero-dark relative overflow-hidden min-h-[100dvh] flex flex-col items-center justify-center snap-start" style={{ background: '#111827' }}>
+      <ThreeBackground />
 
-      <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-36 lg:py-44 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center" style={{ position: 'relative', zIndex: 10 }}>
+      <div className="relative mx-auto max-w-7xl px-6 py-12 lg:px-8 z-10 flex flex-col items-center justify-center">
+        <div className="mx-auto max-w-3xl text-center" style={{ position: 'relative' }}>
           <p
             className={`mb-5 text-xs font-semibold uppercase tracking-widest text-[#0152ff] duration-[450ms] ${base} ${mounted ? visible : hidden}`}
             style={{ transitionDelay: '0ms' }}

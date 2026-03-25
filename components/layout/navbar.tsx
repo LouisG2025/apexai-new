@@ -19,7 +19,7 @@ export function Navbar() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full transition-[background,border-color,box-shadow] duration-300"
+      className="fixed top-0 z-50 w-full transition-[background,border-color,box-shadow] duration-300"
       style={{
         background: '#111827',
         backdropFilter: 'blur(20px) saturate(160%)',

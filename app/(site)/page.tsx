@@ -8,6 +8,7 @@ import { FounderRedirect } from '@/components/sections/founder-redirect';
 import { FinalCta } from '@/components/sections/final-cta';
 import { FaqSection } from '@/components/shared/faq-section';
 import { MidPageCta } from '@/components/shared/mid-page-cta';
+import { Footer } from '@/components/layout/footer';
 
 export const metadata: Metadata = {
   title: 'ApexAI | AI-Powered Sales Automation',
@@ -16,36 +17,50 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-white">
+    <div className="bg-white h-[100dvh] overflow-y-auto snap-y snap-mandatory">
       <Hero />
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
         <Problem />
       </div>
 
-      <Pillars />
+      <div className="snap-start">
+        <Pillars />
+      </div>
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
         <ServicesSnapshot />
       </div>
 
-      <MidPageCta
-        headline="Ready to Build a Sales Machine?"
-        subline="Book a discovery call and we can see exactly how we can help your business."
-        primaryLabel="Book a Discovery Call"
-        primaryHref="/contact#book"
-        secondaryLabel="View Services"
-        secondaryHref="/services"
-      />
+      <div className="snap-start">
+        <MidPageCta
+          headline="Ready to Build a Sales Machine?"
+          subline="Book a discovery call and we can see exactly how we can help your business."
+          primaryLabel="Book a Discovery Call"
+          primaryHref="/contact#book"
+          secondaryLabel="View Services"
+          secondaryHref="/services"
+        />
+      </div>
 
-      <Partnerships />
+      <div className="snap-start">
+        <Partnerships />
+      </div>
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
         <FounderRedirect />
       </div>
 
-      <FinalCta />
-      <FaqSection />
+      <div className="snap-start">
+        <FinalCta />
+      </div>
+      <div className="snap-start">
+        <FaqSection />
+      </div>
+
+      <div className="snap-start">
+        <Footer />
+      </div>
     </div>
   );
 }

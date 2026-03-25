@@ -1,0 +1,5 @@
+{
+  "/(site)/process/page": "app/(site)/process/page.js",
+  "/(site)/services/page": "app/(site)/services/page.js",
+  "/(site)/page": "app/(site)/page.js"
+}

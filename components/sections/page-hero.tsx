@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { ThreeBackground } from '@/components/shared/three-background';
 
 interface PageHeroProps {
   title: string;
@@ -36,6 +37,7 @@ export function PageHero({
       className="hero-dark relative overflow-hidden py-24 md:py-32"
       style={{ background: '#111827' }}
     >
+      <ThreeBackground />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
