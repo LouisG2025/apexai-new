@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Linkedin } from 'lucide-react';
 import { FOOTER_LINKS } from '@/lib/constants';
+import { ThreeBackground } from '@/components/shared/three-background';
 
 export function Footer() {
   return (
@@ -12,6 +13,7 @@ export function Footer() {
         borderTop: '1px solid rgba(255,255,255,0.06)',
       }}
     >
+      <ThreeBackground />
       <div
         className="pointer-events-none absolute inset-0"
         style={{
