@@ -10,7 +10,7 @@ import {
   Send,
 } from 'lucide-react';
 import { LearnMoreLink } from '@/components/shared/learn-more-link';
-import { useScrollReveal } from '@/hooks/use-scroll-reveal';
+import { motion } from 'framer-motion';
 
 const SERVICES_GRID = [
   {
@@ -46,94 +46,102 @@ const SERVICES_GRID = [
 ];
 
 export function ServicesSnapshot() {
-  const { ref: headerRef, isVisible: headerVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.1 });
-  const { ref: gridRef, isVisible: gridVisible } = useScrollReveal<HTMLDivElement>({ threshold: 0.06 });
-
   return (
-    <section className="relative overflow-hidden bg-[#111827] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-[#0f172a] py-24 md:py-32">
+      {/* Dynamic Background Elements */}
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          background:
-            'radial-gradient(ellipse 50% 40% at 0% 50%, rgba(1,82,255,0.06) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 100% 50%, rgba(1,82,255,0.05) 0%, transparent 60%)',
+          background: `
+            radial-gradient(circle at 0% 0%, rgba(1, 82, 255, 0.08) 0%, transparent 50%),
+            radial-gradient(circle at 100% 100%, rgba(1, 82, 255, 0.05) 0%, transparent 50%),
+            radial-gradient(circle at 50% 50%, rgba(1, 82, 255, 0.03) 0%, transparent 100%)
+          `
         }}
       />
+      
+      {/* Animated Mesh Gradients */}
+      <div className="absolute top-0 right-0 -tr-1/4 w-[500px] h-[500px] bg-[#0152ff]/10 blur-[120px] rounded-full pointer-events-none opacity-40 animate-pulse" />
+      <div className="absolute bottom-0 left-0 tr-1/4 w-[500px] h-[500px] bg-[#0152ff]/5 blur-[120px] rounded-full pointer-events-none opacity-30 animate-pulse" style={{ animationDelay: '2s' }} />
 
       <div className="relative mx-auto max-w-6xl px-6 lg:px-8">
-        <div
-          ref={headerRef}
-          className={`text-center transition-all duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          className="text-center"
         >
-          <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-[#0152ff]">
+          <div className="inline-block px-3 py-1 rounded-full bg-[#0152ff]/10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0152ff] mb-6">
             What We Build
-          </p>
-          <h2 className="font-cabinet text-3xl font-bold tracking-tight text-white md:text-4xl">
-            What We Actually Implement
+          </div>
+          <h2 className="font-cabinet text-3xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl lg:leading-[1.12]">
+            What We Actually <span className="text-[#0152ff]">Implement</span>
           </h2>
           <p
-            className="mx-auto mt-4 max-w-2xl font-inter text-lg"
+            className="mx-auto mt-6 max-w-2xl font-inter text-lg md:text-xl leading-relaxed"
             style={{ color: 'rgba(255,255,255,0.55)' }}
           >
             End-to-end automation solutions for every stage of your sales
-            operation.
+            operation. We don&apos;t just advise &mdash; we build.
           </p>
-        </div>
+        </motion.div>
 
-        <div ref={gridRef} className="mx-auto mt-16 grid max-w-4xl gap-5 sm:grid-cols-2">
+        <div className="mx-auto mt-20 grid max-w-5xl gap-6 sm:grid-cols-2 lg:gap-8">
           {SERVICES_GRID.map((service, i) => (
-            <div
+            <motion.div
               key={service.title}
-              className="group relative overflow-hidden rounded-2xl p-7"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="group relative flex flex-col overflow-hidden rounded-[2rem] p-8 transition-all duration-500 hover:-translate-y-2"
               style={{
-                background: 'rgba(255,255,255,0.04)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.05)',
-                opacity: gridVisible ? 1 : 0,
-                transform: gridVisible ? 'translateY(0)' : 'translateY(24px)',
-                transition: 'opacity 500ms cubic-bezier(0.22,1,0.36,1), transform 500ms cubic-bezier(0.22,1,0.36,1), box-shadow 220ms ease',
-                transitionDelay: `${i * 100}ms`,
-              }}
-              onMouseEnter={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.transform = 'translateY(-6px)';
-                el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 1px rgba(1,82,255,0.3), 0 12px 40px rgba(1,82,255,0.12)';
-              }}
-              onMouseLeave={(e) => {
-                const el = e.currentTarget as HTMLDivElement;
-                el.style.transform = 'translateY(0)';
-                el.style.boxShadow = 'inset 0 1px 0 rgba(255,255,255,0.05)';
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.06)',
+                boxShadow: '0 20px 40px -20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(12px)',
               }}
             >
+              {/* Card Hover Gradient */}
               <div
-                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-[220ms] group-hover:opacity-100"
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                 style={{
-                  background: 'radial-gradient(ellipse 70% 60% at 50% 0%, rgba(1,82,255,0.12) 0%, transparent 70%)',
-                  borderRadius: 'inherit',
+                  background: 'radial-gradient(circle at center, rgba(1, 82, 255, 0.12) 0%, transparent 100%)',
                 }}
               />
-              <div className="flex items-start gap-4">
+              
+              {/* Light Sweep Effect */}
+              <div className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out pointer-events-none bg-gradient-to-r from-transparent via-white/5 to-transparent" />
+
+              <div className="flex flex-col gap-6 z-10 h-full">
                 <div
-                  className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl transition-all duration-[220ms] group-hover:shadow-[0_0_16px_rgba(1,82,255,0.35)]"
+                  className="flex h-14 w-14 items-center justify-center rounded-2xl transition-all duration-500 group-hover:scale-110 group-hover:shadow-[0_0_30px_rgba(1,82,255,0.4)]"
                   style={{
-                    background: 'rgba(1,82,255,0.15)',
-                    border: '1px solid rgba(1,82,255,0.25)',
+                    background: 'rgba(1, 82, 255, 0.15)',
+                    border: '1px solid rgba(1, 82, 255, 0.25)',
+                    backdropFilter: 'blur(4px)',
                   }}
                 >
-                  <service.icon className="h-5 w-5 text-[#0152ff] transition-all duration-[220ms] group-hover:drop-shadow-[0_0_6px_rgba(1,82,255,0.7)]" />
+                  <service.icon className="h-7 w-7 text-[#0152ff] transition-all duration-500 group-hover:drop-shadow-[0_0_8px_rgba(1,82,255,0.8)]" />
                 </div>
-                <div className="flex-1 min-w-0">
-                  <h3 className="font-cabinet text-lg font-bold text-white leading-tight">
+                
+                <div className="flex flex-col flex-1">
+                  <h3 className="font-cabinet text-xl font-bold text-white leading-tight md:text-2xl transition-colors duration-300">
                     {service.title}
                   </h3>
                   <p
-                    className="mt-2 font-inter text-sm leading-relaxed"
-                    style={{ color: 'rgba(255,255,255,0.52)' }}
+                    className="mt-4 font-inter text-[15px] md:text-base leading-relaxed text-slate-400 group-hover:text-slate-300 transition-colors duration-300"
                     dangerouslySetInnerHTML={{ __html: service.description }}
                   />
-                  <LearnMoreLink href="/services" />
+                  
+                  <div className="mt-auto pt-8">
+                    <div className="h-px w-full bg-gradient-to-r from-white/10 to-transparent mb-6 transition-all duration-500 group-hover:from-[#0152ff]/30" />
+                    <LearnMoreLink href="/services" className="transition-transform duration-300 group-hover:translate-x-1" />
+                  </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

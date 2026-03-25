@@ -30,34 +30,28 @@ export function Founder() {
             }}
           />
 
-          <div className="grid items-center gap-8 lg:grid-cols-[1fr_auto] lg:gap-12 flex-col-reverse lg:flex-none">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-[#0152ff]">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
+            <div className="order-2 lg:order-1">
+              <div className="inline-block px-3 py-1 rounded-full bg-[#0152ff]/10 text-[10px] font-bold uppercase tracking-[0.2em] text-[#0152ff] mb-6">
                 A Message From The Founder
-              </p>
-              <h2 className="mt-3 font-cabinet text-2xl font-bold tracking-tight text-white md:text-3xl">
+              </div>
+              <h2 className="font-cabinet text-2xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl lg:leading-[1.15]">
                 &ldquo;We specialise in{' '}
                 <span className="text-[#0152ff]">sales systems</span>.
-                Creative thinking. Strategic execution. We automate what
-                actually drives ROI and ignore the BS in between.&rdquo;
+                Creative thinking. Strategic execution.&rdquo;
               </h2>
-              <div className="mt-5 space-y-3.5 font-inter text-base leading-[1.75]" style={{ color: 'rgba(255,255,255,0.55)' }}>
+              <div className="mt-8 space-y-4 font-inter text-base md:text-lg leading-relaxed text-slate-400">
                 <p>
                   Over the last three years working at the intersection of AI,
-                  marketing, and sales, one thing became clear. <strong>Tools are easy.
+                  marketing, and sales, one thing became clear: <strong>Tools are easy.
                   Strategy is rare.</strong>
                 </p>
                 <p>
                   Our team blends creative thinking with commercial awareness.
-                  We examine systems from every angle before touching a single
-                  workflow. What works. What doesn&apos;t. <strong>Where ROI genuinely
+                  We examine systems from every angle. <strong>Where ROI genuinely
                   exists.</strong> Whether it risks the customer experience or brand.
                 </p>
-                <p>
-                  We build deliberately. We think long term. We avoid shortcuts
-                  or following trends.
-                </p>
-                <p className="text-white">
+                <p className="text-white font-medium">
                   Because real growth is getting ahead, not following the herd.
                 </p>
               </div>
@@ -65,38 +59,33 @@ export function Founder() {
                 href="https://www.linkedin.com/in/louis-grange0405/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all"
-                style={{
-                  background: 'rgba(255,255,255,0.06)',
-                  border: '1px solid rgba(255,255,255,0.12)',
-                }}
+                className="mt-10 inline-flex items-center gap-3 rounded-full bg-white/5 border border-white/12 px-6 py-3 text-sm font-semibold text-white backdrop-blur-md transition-all hover:bg-white/10 hover:border-white/20"
               >
                 <Linkedin className="h-4 w-4 text-[#0152ff]" />
                 Let&apos;s Connect
               </Link>
             </div>
 
-            <div className="flex flex-col items-center lg:items-end lg:justify-end order-first lg:order-none">
+            <div className="order-1 lg:order-2 flex flex-col items-center">
               <div
-                className="relative aspect-square w-40 flex-shrink-0 overflow-hidden rounded-3xl md:w-48 lg:w-80"
+                className="relative aspect-square w-56 sm:w-64 md:w-72 lg:w-[400px] overflow-hidden rounded-[2.5rem]"
                 style={{
                   border: '1px solid rgba(255,255,255,0.1)',
-                  boxShadow: '0 0 40px rgba(1,82,255,0.15), 0 16px 48px rgba(0,0,0,0.3)',
+                  boxShadow: '0 32px 64px -16px rgba(0,0,0,0.5), 0 0 40px rgba(1,82,255,0.1)',
                 }}
               >
                 <Image
                   src="/Adobe_Express_-_file.webp"
                   alt="Louis Grange, Founder of ApexAI"
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  priority
                 />
               </div>
-              <p
-                className="mt-2 text-center text-sm font-semibold"
-                style={{ color: '#ffffff', fontSize: '14px', fontWeight: 600 }}
-              >
-                Louis Grange
-              </p>
+              <div className="mt-6 text-center">
+                <p className="font-cabinet text-xl font-bold text-white">Louis Grange</p>
+                <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#0152ff] mt-1">Founder & CEO</p>
+              </div>
             </div>
           </div>
         </div>

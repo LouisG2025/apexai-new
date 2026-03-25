@@ -19,7 +19,7 @@ export default function ProcessPage() {
 
       <ProcessApproach />
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12">
         <ProcessTimeline />
         <FinalCta />
       </div>

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: 'ApexAI | AI-Powered Sales Automation',
   description:
     'ApexAI builds intelligent automation systems that transform your sales operations into predictable revenue machines.',
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({

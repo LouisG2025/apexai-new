@@ -39,7 +39,9 @@ export function ServiceCategory({
             </li>
           ))}
         </ul>
-        <LearnMoreLink href={contactHref} label="Get started with this service" />
+        <div className="mt-8">
+          <LearnMoreLink href={contactHref} label="Get started with this service" />
+        </div>
       </div>
 
       <div className="flex h-64 items-center justify-center rounded-2xl border border-gray-200 bg-gray-50 lg:h-80">

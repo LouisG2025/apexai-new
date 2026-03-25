@@ -21,7 +21,7 @@ export function Navbar() {
     <header
       className="fixed top-0 z-50 w-full transition-[background,border-color,box-shadow] duration-300"
       style={{
-        background: '#111827',
+        background: mobileOpen ? '#0b0f19' : 'rgba(17, 24, 39, 0.8)',
         backdropFilter: 'blur(20px) saturate(160%)',
         WebkitBackdropFilter: 'blur(20px) saturate(160%)',
         borderBottom: '1px solid rgba(255,255,255,0.07)',
@@ -81,7 +81,7 @@ export function Navbar() {
         <div
           className="border-t px-6 py-5 md:hidden"
           style={{
-            background: 'rgba(8,12,22,0.99)',
+            background: '#0b0f19',
             borderTopColor: 'rgba(255,255,255,0.06)',
           }}
         >

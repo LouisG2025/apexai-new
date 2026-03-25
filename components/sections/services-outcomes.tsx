@@ -60,40 +60,51 @@ function OutcomeCard({ outcome, index }: { outcome: typeof OUTCOMES[number]; ind
   return (
     <div
       ref={ref}
-      className={`group relative overflow-hidden rounded-2xl bg-white p-8 transition-all duration-500 ease-out ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+      className={`group relative overflow-hidden rounded-[2rem] p-8 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
       }`}
       style={{
-        transitionDelay: `${index * 120}ms`,
-        border: hovered ? '1px solid #0152ff' : '1px solid rgba(0,0,0,0.06)',
-        boxShadow: hovered ? '0 8px 32px rgba(1,82,255,0.12), 0 2px 16px rgba(0,0,0,0.05)' : '0 2px 16px rgba(0,0,0,0.05)',
-        transform: isVisible ? (hovered ? 'translateY(-4px)' : 'translateY(0)') : 'translateY(24px)',
-        transition: 'opacity 500ms cubic-bezier(0.22,1,0.36,1), transform 300ms cubic-bezier(0.22,1,0.36,1), border-color 200ms ease, box-shadow 200ms ease',
+        transitionDelay: `${index * 150}ms`,
+        background: hovered ? 'rgba(1,82,255,0.03)' : 'rgba(255,255,255,0.01)',
+        border: hovered ? '1px solid rgba(1,82,255,0.3)' : '1px solid rgba(0,0,0,0.05)',
+        boxShadow: hovered 
+          ? '0 20px 40px rgba(1,82,255,0.08), inset 0 1px 1px rgba(255,255,255,0.8)' 
+          : '0 4px 20px rgba(0,0,0,0.03), inset 0 1px 1px rgba(255,255,255,1)',
+        transform: isVisible ? (hovered ? 'translateY(-8px) scale(1.02)' : 'translateY(0)') : 'translateY(40px)',
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
       <div
-        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
         style={{
-          background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(1,82,255,0.04) 0%, transparent 70%)',
+          background: 'radial-gradient(circle at 50% 0%, rgba(1,82,255,0.08) 0%, transparent 70%)',
         }}
       />
+      
       <div
-        className="mb-5 flex h-10 w-10 items-center justify-center rounded-lg font-cabinet text-lg font-bold text-[#0152ff]"
+        className="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl font-cabinet text-xl font-bold text-[#0152ff] shadow-sm transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3"
         style={{
-          background: 'rgba(1,82,255,0.08)',
-          border: '1px solid rgba(1,82,255,0.15)',
+          background: 'white',
+          border: '1px solid rgba(1,82,255,0.1)',
+          boxShadow: '0 4px 12px rgba(1,82,255,0.1)',
         }}
       >
         0{index + 1}
       </div>
-      <h3 className="font-cabinet text-xl font-bold text-brand-dark">
+      
+      <h3 className="font-cabinet text-xl font-bold tracking-tight text-brand-dark md:text-2xl transition-colors duration-300 group-hover:text-[#0152ff]">
         {outcome.metric}
       </h3>
-      <p className="mt-3 font-inter text-sm leading-relaxed text-gray-600">
+      
+      <p className="mt-4 font-inter text-sm leading-relaxed text-gray-500 transition-colors duration-300 group-hover:text-gray-700">
         {outcome.explanation}
       </p>
+
+      <div 
+        className="absolute bottom-0 left-0 h-1 bg-[#0152ff] transition-all duration-700 ease-out"
+        style={{ width: hovered ? '100%' : '0%' }}
+      />
     </div>
   );
 }

@@ -34,44 +34,42 @@ export function PageHero({
 
   return (
     <section
-      className="hero-dark relative overflow-hidden min-h-[100dvh] flex flex-col items-center justify-center"
-      style={{ background: '#111827' }}
+      className="hero-dark relative overflow-hidden h-[100dvh] w-full flex flex-col items-center justify-center p-4 sm:p-6"
+      style={{ background: '#0f172a' }}
     >
       <ThreeBackground />
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            'radial-gradient(ellipse 70% 55% at 70% -10%, rgba(1,82,255,0.2) 0%, transparent 60%), radial-gradient(ellipse 40% 30% at 10% 90%, rgba(1,82,255,0.07) 0%, transparent 60%)',
-        }}
-      />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8 z-10 flex flex-col items-center justify-center">
-        <div className="mx-auto max-w-3xl text-center">
+      <div className="relative mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 z-10 flex flex-col items-center justify-center">
+        <div 
+          className="mx-auto max-w-4xl text-center rounded-[2.5rem] border border-white/5 bg-white/[0.02] p-8 md:p-12 lg:p-16 backdrop-blur-[2px]"
+          style={{
+            boxShadow: 'inset 0 1px 1px rgba(255,255,255,0.05)',
+          }}
+        >
           <h1
-            className={`font-cabinet text-4xl font-extrabold tracking-tight text-white md:text-5xl lg:text-[3.25rem] duration-[500ms] ${base} ${mounted ? visible : hidden}`}
+            className={`font-cabinet text-3xl font-extrabold tracking-tight text-white sm:text-4xl md:text-5xl lg:text-7xl duration-[700ms] ${base} ${mounted ? visible : hidden}`}
             style={{ transitionDelay: '0ms' }}
           >
             {title}
           </h1>
           {description && (
-            <p
-              className={`mt-6 font-inter text-lg leading-relaxed duration-[500ms] ${base} ${mounted ? visible : hidden}`}
-              style={{ color: 'rgba(255,255,255,0.58)', transitionDelay: '120ms' }}
+            <div
+              className={`mt-4 md:mt-8 font-inter text-base sm:text-lg md:text-xl leading-relaxed max-w-2xl mx-auto duration-[700ms] ${base} ${mounted ? visible : hidden}`}
+              style={{ color: 'rgba(255,255,255,0.65)', transitionDelay: '150ms' }}
             >
               {description}
-            </p>
+            </div>
           )}
           {(ctaLabel || secondaryCtaLabel) && (
             <div
-              className={`mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center duration-[500ms] ${base} ${mounted ? visible : hidden}`}
-              style={{ transitionDelay: '240ms' }}
+              className={`mt-8 md:mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center duration-[700ms] ${base} ${mounted ? visible : hidden}`}
+              style={{ transitionDelay: '300ms' }}
             >
               {ctaLabel && (
                 <Link
                   href={ctaHref}
-                  className="inline-block rounded-full bg-[#0152ff] px-8 py-3.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5"
-                  style={{ boxShadow: '0 4px 24px rgba(1,82,255,0.45)' }}
+                  className="w-full sm:w-auto inline-block rounded-full bg-[#0152ff] px-10 py-4 text-base font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl active:scale-95"
+                  style={{ boxShadow: '0 8px 32px rgba(1,82,255,0.4)' }}
                 >
                   {ctaLabel}
                 </Link>
@@ -79,7 +77,7 @@ export function PageHero({
               {secondaryCtaLabel && secondaryCtaHref && (
                 <Link
                   href={secondaryCtaHref}
-                  className="inline-block rounded-full border border-white/15 px-8 py-3.5 text-sm font-semibold text-white transition-all hover:border-white/30"
+                  className="w-full sm:w-auto inline-block rounded-full border border-white/20 bg-white/5 px-10 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10 hover:border-white/40"
                 >
                   {secondaryCtaLabel}
                 </Link>
@@ -89,8 +87,9 @@ export function PageHero({
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-40">
-        <div className="w-[1px] h-6 bg-gradient-to-b from-[#0152ff] to-transparent animate-bounce" />
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 opacity-60">
+        <span className="text-[10px] uppercase tracking-[0.2em] text-[#0152ff] font-bold">Discover</span>
+        <div className="w-[1px] h-10 bg-gradient-to-b from-[#0152ff] to-transparent animate-pulse" />
       </div>
     </section>
   );
