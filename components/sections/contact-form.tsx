@@ -344,6 +344,7 @@ function MessageForm() {
     setSubmitting(true);
     setError('');
     try {
+      // 1. Send to Formspree (email notification to Louis)
       const data = new FormData();
       data.append('Full Name', formData.fullName);
       data.append('Website', formData.website);
@@ -356,6 +357,25 @@ function MessageForm() {
         body: data,
         headers: { Accept: 'application/json' },
       });
+
+      // 2. Trigger Albert on WhatsApp (fire-and-forget)
+      if (formData.phone) {
+        fetch('https://after5-agent-production.up.railway.app/form-webhook', {
+          method: 'POST',
+          body: JSON.stringify({
+            name: formData.fullName,
+            phone: formData.phone,
+            company: formData.website || formData.fullName,
+            message: formData.message,
+            source: 'apexai.ae',
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-Key': 'af5_live_2026_xK9mP4qR7wL2',
+          },
+        }).catch(() => {});
+      }
+
       if (res.ok) {
         setSubmitted(true);
       } else {
