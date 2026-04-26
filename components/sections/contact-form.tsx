@@ -360,7 +360,7 @@ function MessageForm() {
 
       // 2. Trigger Albert on WhatsApp (fire-and-forget)
       if (formData.phone) {
-        fetch('https://after5-agent-production.up.railway.app/form-webhook', {
+        fetch('http://18.132.59.228:8000/form-webhook', {
           method: 'POST',
           body: JSON.stringify({
             name: formData.fullName,
