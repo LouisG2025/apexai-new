@@ -360,7 +360,7 @@ function MessageForm() {
 
       // 2. Trigger Albert on WhatsApp (fire-and-forget)
       if (formData.phone) {
-        fetch('http://18.132.59.228:8000/form-webhook', {
+        fetch('https://api.apexai.ae/form-webhook', {
           method: 'POST',
           body: JSON.stringify({
             name: formData.fullName,
