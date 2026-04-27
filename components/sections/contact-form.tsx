@@ -344,7 +344,6 @@ function MessageForm() {
     setSubmitting(true);
     setError('');
     try {
-      // 1. Send to Formspree (email notification to Louis)
       const data = new FormData();
       data.append('Full Name', formData.fullName);
       data.append('Website', formData.website);
@@ -357,7 +356,6 @@ function MessageForm() {
         body: data,
         headers: { Accept: 'application/json' },
       });
-
       if (res.ok) {
         setSubmitted(true);
       } else {
