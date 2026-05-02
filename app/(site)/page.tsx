@@ -17,50 +17,37 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="bg-white h-[100dvh] overflow-y-auto snap-y snap-mandatory">
+    <div className="bg-white">
       <Hero />
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
         <Problem />
       </div>
 
-      <div className="snap-start">
-        <Pillars />
-      </div>
+      <Pillars />
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
         <ServicesSnapshot />
       </div>
 
-      <div className="snap-start">
-        <MidPageCta
-          headline="Ready to Build a Sales Machine?"
-          subline="Book a discovery call and we can see exactly how we can help your business."
-          primaryLabel="Book a Discovery Call"
-          primaryHref="/contact#book"
-          secondaryLabel="View Services"
-          secondaryHref="/services"
-        />
-      </div>
+      <MidPageCta
+        headline="Ready to Build a Sales Machine?"
+        subline="Book a discovery call and we can see exactly how we can help your business."
+        primaryLabel="Book a Discovery Call"
+        primaryHref="/contact#book"
+        secondaryLabel="View Services"
+        secondaryHref="/services"
+      />
 
-      <div className="snap-start">
-        <Partnerships />
-      </div>
+      <Partnerships />
 
-      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px] snap-start">
+      <div className="mx-4 sm:mx-6 lg:mx-8 my-8 md:my-12 overflow-hidden rounded-[40px] md:rounded-[56px]">
         <FounderRedirect />
       </div>
 
-      <div className="snap-start">
-        <FinalCta />
-      </div>
-      <div className="snap-start">
-        <FaqSection />
-      </div>
-
-      <div className="snap-start">
-        <Footer />
-      </div>
+      <FinalCta />
+      <FaqSection />
+      <Footer />
     </div>
   );
 }
